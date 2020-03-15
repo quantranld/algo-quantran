@@ -72,11 +72,7 @@ namespace tree
                 else break;
             }
 
-            result.ForEach(x =>
-            {
-                Console.WriteLine(x);
-            });
-            Console.WriteLine();
+            _printOutList(result);
         }
 
         public void DFSPreOrder_withState()
@@ -120,11 +116,84 @@ namespace tree
                 else break;
             }
 
-            result.ForEach(x =>
+            _printOutList(result);
+        }
+
+        public void DFSPreOrder_Recursive()
+        {
+            var result = new List<T>();
+            _traverse(this.Root);
+            _printOutList(result);
+
+            void _traverse(Node<T> node)
             {
-                Console.WriteLine(x);
+                if (node != null)
+                {
+                    result.Add(node.Value);
+                    _traverse(node.Left);
+                    _traverse(node.Right);
+                }
+            }
+        }
+
+        public void DFSInOrder_Recursive()
+        {
+            var result = new List<T>();
+            _traverse(this.Root);
+            _printOutList(result);
+
+            void _traverse(Node<T> node)
+            {
+                if (node != null)
+                {
+                    _traverse(node.Left);
+                    result.Add(node.Value);
+                    _traverse(node.Right);
+                }
+            }
+        }
+
+        public void DFSPostOrder_Recursive()
+        {
+            var result = new List<T>();
+            _traverse(this.Root);
+            _printOutList(result);
+
+            void _traverse(Node<T> node)
+            {
+                if (node != null)
+                {
+                    _traverse(node.Left);
+                    _traverse(node.Right);
+                    result.Add(node.Value);
+                }
+            }
+        }
+
+        public void BFS_Recursive()
+        {
+            var queue = new Queue<Node<T>>();
+            var result = new List<T>();
+            queue.Enqueue(this.Root);
+
+            while (queue.Count > 0)
+            {
+                var currentNode = queue.Dequeue();
+                result.Add(currentNode.Value);
+                if (currentNode.Left != null) queue.Enqueue(currentNode.Left);
+                if (currentNode.Right != null) queue.Enqueue(currentNode.Right);
+            }
+
+            _printOutList(result);
+        }
+
+        private void _printOutList(List<T> list)
+        {
+            list.ForEach(l =>
+            {
+                Console.WriteLine(l.ToString());
             });
-            Console.WriteLine();
+            Console.ReadKey();
         }
     }
 }

@@ -6,22 +6,21 @@ namespace tree
     {
         static void Main(string[] args)
         {
-            //Console.WriteLine("Hello World!");
             var demoBTree = new BTree<string>();
+            demoBTree.Root = new Node<string>("A");
+            demoBTree.Root.Left = new Node<string>("B");
+            demoBTree.Root.Right = new Node<string>("C");
+            demoBTree.Root.Right.Left = new Node<string>("E");
+            demoBTree.Root.Right.Right = new Node<string>("F");
 
-            var nodeA = new Node<string>("A");
-            var nodeB = new Node<string>("B");
-            var nodeC = new Node<string>("C");
-            var nodeD = new Node<string>("D");
-
-            demoBTree.Root = nodeA;
-            nodeA.Left = nodeB;
-            nodeA.Right = nodeC;
-
-            nodeB.Left = nodeD;
+            demoBTree.Root.Left.Left = new Node<string>("D");
 
             //demoBTree.DFSPreOrder_withoutState();
-            demoBTree.DFSPreOrder_withState();
+            //demoBTree.DFSPreOrder_withState();
+            //demoBTree.DFSPreOrder_Recursive();
+            //demoBTree.DFSInOrder_Recursive();
+            //demoBTree.DFSPostOrder_Recursive();
+            demoBTree.BFS_Recursive();
         }
     }
 }
