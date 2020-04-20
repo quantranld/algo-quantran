@@ -42,7 +42,7 @@ namespace algo_quantran.tree
                 else break;
             }
 
-            _printOutList(result);
+            Util<T>.PrintOutList(result);
         }
 
         public void DFSPreOrder_withState()
@@ -86,14 +86,14 @@ namespace algo_quantran.tree
                 else break;
             }
 
-            _printOutList(result);
+            Util<T>.PrintOutList(result);
         }
 
         public void DFSPreOrder_Recursive()
         {
             var result = new List<T>();
             _traverse(this.Root);
-            _printOutList(result);
+            Util<T>.PrintOutList(result);
 
             void _traverse(Node<T> node)
             {
@@ -110,7 +110,7 @@ namespace algo_quantran.tree
         {
             var result = new List<T>();
             _traverse(this.Root);
-            _printOutList(result);
+            Util<T>.PrintOutList(result);
 
             void _traverse(Node<T> node)
             {
@@ -127,7 +127,7 @@ namespace algo_quantran.tree
         {
             var result = new List<T>();
             _traverse(this.Root);
-            _printOutList(result);
+            Util<T>.PrintOutList(result);
 
             void _traverse(Node<T> node)
             {
@@ -154,16 +154,7 @@ namespace algo_quantran.tree
                 if (currentNode.Right != null) queue.Enqueue(currentNode.Right);
             }
 
-            _printOutList(result);
-        }
-
-        private void _printOutList(List<T> list)
-        {
-            list.ForEach(l =>
-            {
-                Console.WriteLine(l.ToString());
-            });
-            Console.ReadKey();
+            Util<T>.PrintOutList(result);
         }
     }
 }
