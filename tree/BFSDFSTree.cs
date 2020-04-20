@@ -1,40 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using algo_quantran.models;
 
-namespace tree
+namespace algo_quantran.tree
 {
-    public class Node<T> where T : IComparable<T>
-    {
-        //public Node<T> Parent { get; set; }
-        public Node<T> Left { get; set; }
-        public Node<T> Right { get; set; }
-        public T Value { get; set; }
-
-        public Node(T value)
-        {
-            Value = value;
-        }
-
-        public override string ToString()
-        {
-            return Value.ToString();
-        }
-    }
-
-    public class NodeState<T> where T : IComparable<T>
-    {
-        public Node<T> Node { get; set; }
-        public bool hasCheckedLeft { get; set; }
-        public bool hasCheckedRight { get; set; }
-
-        public NodeState(Node<T> node)
-        {
-            Node = node;
-        }
-    }
-
-    public class BTree<T> where T : IComparable<T>
+    public class BFSDFSTree<T> where T : IComparable<T>
     {
         public Node<T> Root { get; set; }
 

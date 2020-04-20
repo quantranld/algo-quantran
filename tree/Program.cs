@@ -1,12 +1,13 @@
 ﻿using System;
+using algo_quantran.models;
 
-namespace tree
+namespace algo_quantran.tree
 {
     class Program
     {
         static void Main(string[] args)
         {
-            var demoBTree = new BTree<string>();
+            var demoBTree = new BFSDFSTree<string>();
             demoBTree.Root = new Node<string>("A");
             demoBTree.Root.Left = new Node<string>("B");
             demoBTree.Root.Right = new Node<string>("C");

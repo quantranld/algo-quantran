@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace binarytree
+namespace algo_quantran.binarytree
 {
     class Program
     {
