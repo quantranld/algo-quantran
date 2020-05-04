@@ -1,4 +1,5 @@
-﻿using System;
+﻿using algo_quantran.models;
+using System;
 
 namespace algo_quantran.binarytree
 {
@@ -6,7 +7,13 @@ namespace algo_quantran.binarytree
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var demoBTree = new BST<int>();
+
+            foreach (var value in new int[5] { 5, 6, 3, 7, 2 })
+            {
+                //demoBTree.InsertWithLoop(value);
+                demoBTree.InsertWithRecursion(value);
+            }
         }
     }
 }

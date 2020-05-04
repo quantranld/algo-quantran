@@ -30,4 +30,11 @@ namespace algo_quantran.models
             Node = node;
         }
     }
+
+    public enum NodeCompareResult
+    {
+        Equal = 0,
+        GreaterThan = 1,
+        LessThan = 2
+    }
 }
