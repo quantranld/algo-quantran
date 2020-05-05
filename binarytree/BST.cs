@@ -87,5 +87,41 @@ namespace algo_quantran.binarytree
                 }
             }
         }
+
+        public Node<T> SearchRecursive(T newValue)
+        {
+            var newNode = new Node<T>(newValue);
+            if (this.Root == null)
+            {
+                return null;
+            }
+
+            return recursive(this.Root, newNode);
+
+            Node<T> recursive(Node<T> parentNode, Node<T> lookingNode)
+            {
+                var compareResult = compareFn(parentNode, lookingNode);
+                if (compareResult == NodeCompareResult.LessThan)
+                {
+                    if (parentNode.Right != null) return recursive(parentNode.Right, lookingNode);
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else if (compareResult == NodeCompareResult.GreaterThan)
+                {
+                    if (parentNode.Left != null) return recursive(parentNode.Left, lookingNode);
+                    else
+                    {
+                        return null;
+                    }
+                }
+                else
+                {
+                    return parentNode;
+                }
+            }
+        }
     }
 }

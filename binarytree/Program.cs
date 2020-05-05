@@ -7,13 +7,16 @@ namespace algo_quantran.binarytree
     {
         static void Main(string[] args)
         {
-            var demoBTree = new BST<int>();
+            var BSTree = new BST<int>();
 
             foreach (var value in new int[5] { 5, 6, 3, 7, 2 })
             {
                 //demoBTree.InsertWithLoop(value);
-                demoBTree.InsertWithRecursion(value);
+                BSTree.InsertWithRecursion(value);
             }
+
+            var search = BSTree.SearchRecursive(4);
+            var search2 = BSTree.SearchRecursive(7);
         }
     }
 }
